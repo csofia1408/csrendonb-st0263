@@ -86,7 +86,7 @@ El proyecto se desarrolla en Python, utilizando Flask para la implementación de
     - **`logoutPeer`:** Gestiona el cierre de sesión de un peer (`POST /logout`). Cambia el estado del nodo a "down" para indicar que el peer se ha desconectado.
     - **`indexFiles`:** Administra la indexación de titulos  de los archivos por parte de un peer (`POST /indexFiles`). Crea o actualiza la información de indexación para un peer dado.
 
-### Métodos en `peer.py`:
+### Métodos en peer.py:
 
 - **`NodeService` (gRPC):** Implementa el servicio gRPC que maneja la comunicación entre nodos. El método `SendMessage` procesa los mensajes enviados desde un peer a otro.
 - **`downloading_uploading` (gRPC):** Se conecta a otro peer usando gRPC para enviar un mensaje (`downloading_uploading`). Usado en la descarga y carga de archivos entre peers.
@@ -118,6 +118,7 @@ El servidor Flask se configura en server.py. Los detalles de configuración, com
 La base de datos SQLAlchemy se configura en server.py mediante SQLAlchemy. El archivo database.db contiene la base de datos y se crea automáticamente al ejecutar el servidor.
 
 #### Organización del Código
+![teer](https://github.com/csofia1408/csrendonb-st0263/blob/main/OrganizaciónCarpetas.png)
 
 Archivos Significativos:
 - server.py: Implementación del servidor Flask y definición de servicios REST.
