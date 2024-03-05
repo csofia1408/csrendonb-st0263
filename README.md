@@ -181,6 +181,13 @@ Hay algunas consideraciones adicionales que podrían ser relevantes para mejorar
 - Escalabilidad: Adaptar la implementación para manejar entornos más grandes, abordando cuestiones como la eficiencia de la base de datos y la optimización de operaciones de red
 
 # referencias:
-<debemos siempre reconocer los créditos de partes del código que reutilizaremos, así como referencias a youtube, o referencias bibliográficas utilizadas para desarrollar el proyecto o la actividad>
-
-## url de donde tomo info para desarrollar este proyecto
+GRPC :https://aws.amazon.com/es/compare/the-difference-between-grpc-and-rest/
+Introducción a las redes P2P: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwj8l__ssNyEAxXStYQIHZKNCNcQFnoECDEQAQ&url=https%3A%2F%2Facademy.binance.com%2Fes%2Farticles%2Fpeer-to-peer-networks-explained&usg=AOvVaw1bnPDg4OMuV-Q_MXY9Jqk_&opi=89978449
+Tutorial de Flask: https://www.tutorialspoint.com/flask/index.htm
+Documentación de gRPC: https://grpc.io/docs/
+Tutorial de SQLAlchemy: https://www.tutorialspoint.com/sqlalchemy/index.htm
+Python: https://www.python.org/
+Flask: https://flask.palletsprojects.com/
+Flask-RESTful: https://flask-restful.readthedocs.io/
+Flask-SQLAlchemy: https://flask-sqlalchemy.palletsprojects.com/
+gRPC: https://grpc.io/
