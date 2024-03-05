@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message Message {
+    string content = 1;
+}
+
+service NodeService {
+    rpc SendDownload(Message) returns (Message) {}
+    rpc SendUpload(Message) returns (Message) {}
+}
