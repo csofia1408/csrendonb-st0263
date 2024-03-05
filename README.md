@@ -1,11 +1,11 @@
 
 
-# info de la materia: ST0263 TOPICOS ESPEC. EN TELEMATICA
-#
-# Estudiante(s): Carla Sofía Rendón Baliero, csrendonb@eafit.edu.co
-#
-# Profesor: Alvaro Enrique Ospina Sanjuan
-#
+## ST0263 TOPICOS ESPEC. EN TELEMATICA
+##
+## Estudiante(s): Carla Sofía Rendón Baliero, csrendonb@eafit.edu.co
+##
+## Profesor: Alvaro Enrique Ospina Sanjuan
+##
 
 
 #  P2P - Comunicación entre procesos mediante API REST, RPC
@@ -38,6 +38,11 @@ El presente proyecto tiene como objetivo diseñar e implementar un sistema P2P p
 La arquitectura del sistema es una red P2P no estructurada basada en un servidor de Directorio y Localización. En este modelo, los nodos tienen la capacidad de establecer conexiones directas entre sí, manteniendo así la naturaleza descentralizada característica de las redes P2P. La introducción del servidor central facilita ciertas funciones especializadas, como la búsqueda eficiente de archivos en la red.
 
 Un aspecto importante que refuerza la no estructuración de la red es la implementación del servicio de búsqueda de archivos. Este servicio filtra los nodos que están activos ('up'), selecciona el primero de este conjunto filtrado y realiza la conexión. La elección del nodo se organiza aleatoriamente entre los nodos 'up' disponibles, aportando un elemento de descentralización y variabilidad en la selección de pares. Este enfoque no estructurado permite a los nodos conectarse de manera dinámica y eficiente, adaptándose a la naturaleza cambiante de la red sin depender de una topología predefinida.
+
+La razón principal de usar este tipo de arquitectura no estructurada se debe a lo siguiente:
+- **Se espera que la red tenga un número pequeño de usuarios:** El número de usuarios en la red estará limitado por el número de estudiantes que participan en el reto.
+- **Los requisitos de seguridad no son altos:** La red no necesita ser altamente segura, ya que solo es un reto inicial.
+- **No hay transferencia real de archivos** .
 
 ### Patrones
 - Patrón MVC "Modelo Vista Controlador":La estructura del código refleja la separación de responsabilidades en términos de modelo (persistencia de datos con SQLAlchemy), vista (interfaz de usuario y servicios REST), y controlador (lógica de negocio y servicios gRPC).
@@ -85,9 +90,12 @@ El proyecto se desarrolla en Python, utilizando Flask para la implementación de
 - **`downloading_uploading` (gRPC):** Se conecta a otro peer usando gRPC para enviar un mensaje (`downloading_uploading`). Usado en la descarga y carga de archivos entre peers.
 - **`Pclient` (Cliente Peer):**
     - **`run`:** El método principal que inicia la ejecución del cliente peer. Proporciona un menú interactivo para que el usuario (peer) realice acciones como iniciar sesión, cerrar sesión, indexar archivos y buscar archivos.
+    - El cliente interactúa con un servidor web (API REST) para realizar operaciones como iniciar sesión, cerrar sesión, indexar archivos y buscar archivos.
     - **`run_submenu`:** Muestra un submenú para opciones adicionales en caso de que el usuario desee expandir funcionalidades en el futuro.
 - **`Pserver` (Servidor Peer):**
     - **Inicio del servidor:** Configura y ejecuta el servidor gRPC para manejar las comunicaciones entre peers.
+    - La función downloading_uploading utiliza un canal gRPC para comunicarse con otro par (peer).
+    - Se instancia un cliente gRPC (NodeServiceStub) y se utiliza para invocar los métodos SendDownload o SendUpload según el parámetro.
 
 ### Detalles técnicos
 #### Librerías y Paquetes Principales:
@@ -158,7 +166,7 @@ Al iniciar el cliente, se presentará un menú interactivo con opciones como:
 
 - Seleccione la opción '4' e ingrese el nombre de archivo que desea buscar.
 - El cliente consultará a otros pares y mostrará la información de un par disponible que tiene el archivo.
-- Se enviará un mensaje a la otra peer con el archivo, solicitando su carga.
+- Se enviará un mensaje a la otra peer con el archivo, solicitando su carga, una vez cargado.
 - El archivo se descargará y se agregará al directorio, actualizando la información de archivos de esa peer.
 
 # 5. otra información que considere relevante para esta actividad.
