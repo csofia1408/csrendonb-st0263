@@ -44,6 +44,8 @@ La razón principal de usar este tipo de arquitectura no estructurada se debe a 
 - **Los requisitos de seguridad no son altos:** La red no necesita ser altamente segura, ya que solo es un reto inicial.
 - **No hay transferencia real de archivos** .
 
+![ImagenArquitectura](https://github.com/csofia1408/csrendonb-st0263/blob/main/Arquitectura.png)
+
 ### Patrones
 - Patrón MVC "Modelo Vista Controlador":La estructura del código refleja la separación de responsabilidades en términos de modelo (persistencia de datos con SQLAlchemy), vista (interfaz de usuario y servicios REST), y controlador (lógica de negocio y servicios gRPC).
 - Patrón DAO "Data Access Object": SQLAlchemy se utiliza para interactuar con la base de datos SQLAlchemy, siguiendo el patrón DAO para separar la lógica de acceso a datos del resto del código.
