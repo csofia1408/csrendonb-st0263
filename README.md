@@ -8,7 +8,7 @@
 ##
 
 
-#  P2P - Comunicación entre procesos mediante API REST, RPC
+#  P2P - Comunicación entre procesos mediante API REST, GRPC
 #
 # 1. Descripción de la actividad
 #
